@@ -1,0 +1,9 @@
+node_modules/
+static/bundle.js
+*.log
+dist
+testJs
+.awcache
+coverage
+*.lcov
+.nyc_output
