@@ -5,7 +5,7 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --config webpack.production.config.js --progress --profile --colors",
     "start": "cross-env NODE_ENV=development webpack-dev-server --progress --profile --colors",
-    "ava": "tsc && ava testJs/**/*.spec.js",
+    "ava": "tsc --jsx react --inlineSourceMap && ava testJs/**/*.spec.js",
     "test": "cross-env NODE_ENV=test nyc --check-coverage --lines 80  npm run ava",
     "lint": "eslint --ext js --ext jsx src || exit 0",
     "dev": "cross-env NODE_ENV=development webpack-dashboard -- webpack-dev-server --progress --profile --colors"
