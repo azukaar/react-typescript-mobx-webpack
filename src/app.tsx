@@ -1,6 +1,4 @@
-declare var require;
-let remotedev = require('mobx-remotedev');
-
+import 'mobx-remotedev';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { observable, action } from 'mobx';
