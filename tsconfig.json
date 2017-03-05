@@ -11,7 +11,7 @@
     "experimentalDecorators": true,
     "noLib": false,
     "allowJs" : true,
-    "sourceMap": true,
+    "inlineSourceMap": true,
     "outDir": "./testJs"
   },
   "awesomeTypescriptLoaderOptions": {
