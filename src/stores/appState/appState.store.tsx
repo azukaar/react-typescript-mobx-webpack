@@ -1,6 +1,4 @@
-declare var require;
-let remotedev = require('mobx-remotedev');
-let mobx = require('mobx');
+import remotedev from 'mobx-remotedev';
 import { observable, action } from 'mobx';
 
 @remotedev({ global: true })

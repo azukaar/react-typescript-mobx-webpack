@@ -5,7 +5,7 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --config webpack.production.config.js --progress --profile --colors",
     "start": "cross-env NODE_ENV=development webpack-dev-server --progress --profile --colors",
-    "ava": "tsc --jsx react --inlineSourceMap && ava testJs/**/*.spec.js",
+    "ava": "node ./prepare-test.js && tsc --jsx react --inlineSourceMap && ava testJs/**/*.spec.js",
     "test": "cross-env NODE_ENV=test nyc --check-coverage --lines 80  npm run ava",
     "lint": "eslint --ext js --ext jsx src || exit 0",
     "dev": "cross-env NODE_ENV=development webpack-dashboard -- webpack-dev-server --progress --profile --colors"
@@ -20,7 +20,7 @@
   "author": "Yann Stepienik",
   "ava": {
     "require": [
-      "babel-register"
+      "./setup-babel-require.js"
     ],
     "babel": "inherit"
   },
@@ -31,7 +31,11 @@
     ],
     "exclude": [
       "testJs/**/*.spec.js",
-      "testJs/**/*.spec.jsx"
+      "testJs/**/*.spec.jsx",
+      "testJs/**/*.mock.js",
+      "testJs/**/*.mock.jsx",
+      "setup-babel-require.js",
+      "prepare-test.js"
     ],
     "include ": [
       "testJs/**/*.jsx",
@@ -42,7 +46,7 @@
     "@types/react": "^0.14.36",
     "@types/react-dom": "^0.14.17",
     "ava": "^0.15.2",
-    "awesome-typescript-loader": "^2.2.4",
+    "awesome-typescript-loader": "^3.0.8",
     "chai": "^3.5.0",
     "chai-enzyme": "^0.5.0",
     "codecov": "^1.0.1",
@@ -54,7 +58,7 @@
     "react-hot-loader": "^3.0.0-beta.6",
     "sinon": "^1.17.4",
     "sinon-chai": "^2.8.0",
-    "typescript": "2.0.3",
+    "typescript": "^2.2.1",
     "url-loader": "^0.5.8",
     "webpack": "^2.2.1",
     "webpack-dashboard": "^0.3.0",
@@ -72,6 +76,8 @@
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-react": "^6.22.0",
     "babel-runtime": "^6.22.0",
+    "cheerio": "^0.22.0",
+    "cpr": "^2.0.2",
     "cross-env": "^3.2.3",
     "css-loader": "^0.26.2",
     "extract-text-webpack-plugin": "^2.1.0",
