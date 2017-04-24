@@ -5,7 +5,7 @@ import { observer, inject } from 'mobx-react';
 
 import AppState from '../../stores/appState/appState.store'; 
 
-import "./index.page.css";
+import "./index.page.less";
 
 @inject("appState") @observer 
 export default class IndexPage extends React.Component<{appState?: AppState}, {}> {

@@ -6,6 +6,15 @@ module.exports = [
 		exclude: /(node_modules|bower_components|public)/,
 		loader: "babel-loader"
 	},
+	{
+		test: /\.less$/,
+		use: [
+			'style-loader?sourceMap',
+			'css-loader',
+			'postcss-loader',
+			'less-loader'
+		]
+	},
   {
 			test: /\.tsx?$/,
 			loaders: ['awesome-typescript-loader'],
